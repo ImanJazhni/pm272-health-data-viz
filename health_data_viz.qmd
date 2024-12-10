@@ -1,0 +1,48 @@
+---
+title: "Health Data Analysis"
+author: "Arron Lacy"
+data: "2024-12-09"
+output: html
+---
+
+# Health Data Viz Analysis
+
+
+## load necessary libraries 
+
+Here we load our libraries:
+
+```{r}
+#install.packages("GGally")
+library(tidyverse)
+library(GGally)
+library(readr)
+library(NHANES)
+
+```
+
+## load in the NHANES Data 
+
+```{r}
+# select the relevent columns from the NHANES dataset
+health_data<- NHANES%>% select(BMI,Age,Gender,TotChol)
+summary (health_data)
+```
+
+## plot a histogram of BMI
+
+```{r}
+#create a histogram of BMI using ggplot 
+ggplot (health_data, aes(x=BMI))+
+    geom_histogram(binwidth=1,fill="skyblue",colour="black")+
+    labs(title = "Distribution of BMI") +
+    theme_minimal()
+
+
+
+
+
+
+
+# creat 
+
